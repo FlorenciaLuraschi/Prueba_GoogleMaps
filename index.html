@@ -2,25 +2,22 @@
 <html lang="es" dir="ltr">
 <!-- Pagina para realizar busquedas dentro de un mapa, llamando a la API de GoogleMaps. -->
   <head>
+    <!-- Metadatos -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- titulo pincipal de la pagina -->
     <title>Buscador en Mapa</title>
+    <!-- Estilos -->
     <link rel="stylesheet" href="css/master.css">
   </head>
   <body>
+    <!-- Contenedor princial del mapa -->
     <div id="googleMap"></div>
-    <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('googleMap'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
-      }
-    </script>
+
+    <!-- Cargamos la API de JavaScript de Maps y distintas funcionalidades del mapa -->
+    <script type="text/javascript" src="js/maps.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3MYTkPlD2EP5GcQw8fkN64ZbN3Ocesic&callback=initMap"
     async defer></script>
-  
   </body>
 </html>
