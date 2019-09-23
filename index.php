@@ -1,3 +1,14 @@
+<?php
+require_once("Autoload.php");
+
+  if ($_POST) {
+    $marcador= new Marcador($_POST["descripcion"],$_POST["direccion"],$_POST["telefono"],$_POST["coordenada"],$_POST["categoria"]);
+    $registroMarcador = $registro->armarMarcador($marcador);
+    $json->guardar($registroMarcador);
+    redirect("index.php");
+      }
+?>
+
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
 <!-- Pagina para realizar busquedas dentro de un mapa, llamando a la API de GoogleMaps. -->
@@ -15,9 +26,8 @@
 </head>
 
 <body>
-
   <!-- Formulario para ingresar los marcadores -->
-  <form class="formulario" action="index.html" method="post">
+  <form class="formulario" action="index.php" method="post">
     <div class="form-group row">
       <label for="inputDescripcion" class="col-sm-4 col-form-label">Descripción</label>
       <div class="col-sm-7">
@@ -39,7 +49,7 @@
     <div class="form-group row">
       <label for="inputCoordenadas" class="col-sm-4 col-form-label">Coordenadas</label>
       <div class="col-sm-7">
-        <input type="text" class="form-control" name="coordenadas" id="inputCoordenadas" placeholder="ej: -34.603 -58.381" required>
+        <input type="text" class="form-control" name="coordenada" id="inputCoordenadas" placeholder="ej: -34.603 -58.381" required>
       </div>
     </div>
     <div id="errorCoordLat"></div>
@@ -67,8 +77,10 @@
 
 
   <!-- Cargamos la API de JavaScript de Maps y distintas funcionalidades del mapa -->
+  <script type="text/javascript" src="js/validacion.js"></script>
   <script type="text/javascript" src="js/maps.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3MYTkPlD2EP5GcQw8fkN64ZbN3Ocesic&callback=initMap" async defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
