@@ -66,9 +66,12 @@ require_once("Autoload.php");
       </div>
     </div>
     <div class="form-group row">
-      <div class="col-sm-7 ml-md-auto">
-        <button type="submit" class="btn btn-primary">Agregar</button>
+      <div class="d-flex flex-row col-6">
+        <input onclick="deleteMarkers();" class="btn btn-warning" type=button value="Borrar Marcador">
       </div>
+      <div class="col-6">
+        <button type="submit" class="btn btn-primary">Agregar</button>
+        </div>
     </div>
   </form>
 
