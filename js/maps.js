@@ -71,12 +71,12 @@ function initMap() {
   });
 
   // Suma las marcas al mapa y además agrega el punto al array de marcadores.
-  function addMarker(pocicion) {
+  function addMarker(posicion) {
     var marker = new google.maps.Marker({
       position: pocicion,
       map: mapa
     });
-   marcadores.push(marker);
+    marcadores.push(marker);
   }
 }
 
